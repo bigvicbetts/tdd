@@ -17,7 +17,7 @@ public class FragranceTests {
     public void testGetDescription_GetDefaultDescription() {
         Product fragrance = Fragrance.getInstance(11.49);
         String actual = fragrance.getDescription();
-        String expected = "Something Smells";
+        String expected = "fragrance";
         Assert.assertEquals(actual, expected);
     }
 }
