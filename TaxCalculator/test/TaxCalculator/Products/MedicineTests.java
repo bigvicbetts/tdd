@@ -17,7 +17,7 @@ public class MedicineTests {
     public void testGetDescription_GetDefaultDescription() {
         Product medicine = Medicine.getInstance(11.49);
         String actual = medicine.getDescription();
-        String expected = "acetaminophen";
+        String expected = "medicine";
         Assert.assertEquals(actual, expected);
     }
 
