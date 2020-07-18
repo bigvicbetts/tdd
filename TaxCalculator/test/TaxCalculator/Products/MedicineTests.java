@@ -9,7 +9,7 @@ public class MedicineTests {
     public void testGetDescription() {
         Product medicine = Medicine.getInstance(11.49, "acetaminophen");
         String actual = medicine.getDescription();
-        String expected = "my medicine";
+        String expected = "acetaminophen";
         Assert.assertEquals(actual, expected);
     }
 
