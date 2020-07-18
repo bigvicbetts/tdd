@@ -17,7 +17,7 @@ public class FoodTests {
     public void testGetDescription_GetDefaultDescription() {
         Product food = Food.getInstance(11.49);
         String actual = food.getDescription();
-        String expected = "grapes";
+        String expected = "food";
         Assert.assertEquals(actual, expected);
     }
 }
