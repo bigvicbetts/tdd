@@ -79,4 +79,12 @@ public class CashRegisterTests {
         Assert.assertEquals(actual, expected);
     }
 
+    @Test
+    public void testCalculateTax_TaxExemptAndImported_RequireRounding() {
+        CashRegister cashRegister = CashRegister.getInstance();
+        BigDecimal itemTax = cashRegister.calculateTaxRate(true, true);
+        BigDecimal actual = cashRegister.calculateTax(new BigDecimal(String.valueOf(11.25)), itemTax);
+        BigDecimal expected = new BigDecimal(String.valueOf(".6"));
+        Assert.assertEquals(actual, expected);
+    }
 }
