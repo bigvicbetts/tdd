@@ -42,9 +42,10 @@ public class CashRegisterTests {
     }
 
     @Test
-    public void testCalculateTax() {
+    public void testCalculateTax_TaxExemptAndNotImported() {
         CashRegister cashRegister = CashRegister.getInstance();
-        BigDecimal actual = cashRegister.calculateTax(new BigDecimal(String.valueOf(1.99)), new BigDecimal(String.valueOf(0.0)));
+        BigDecimal itemTax = cashRegister.calculateTaxRate(true, false);
+        BigDecimal actual = cashRegister.calculateTax(new BigDecimal(String.valueOf(1.99)), itemTax);
         BigDecimal expected = new BigDecimal(String.valueOf("0.000"));
         Assert.assertEquals(actual, expected);
     }
