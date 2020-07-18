@@ -17,7 +17,7 @@ public class BookTest {
     public void testGetDescription_GetDefaultDescription() {
         Product book = Book.getInstance(11.49);
         String actual = book.getDescription();
-        String expected = "My Book";
+        String expected = "book";
         Assert.assertEquals(actual, expected);
     }
 }
