@@ -30,10 +30,11 @@ public class CashRegister {
 
     public BigDecimal calculateTax(BigDecimal price, BigDecimal taxRate) {
         MathContext mc = new MathContext(2);
-        BigDecimal tax = new BigDecimal(String.valueOf(price.multiply(taxRate))).round(mc);
+        BigDecimal tax = new BigDecimal(String.valueOf(price.multiply(taxRate)));
         tax = tax.multiply(new BigDecimal(String.valueOf(20)));
         double newTax = Math.ceil(tax.doubleValue());
         tax = new BigDecimal(String.valueOf(newTax)).divide(new BigDecimal(String.valueOf(20)));
+        tax.round(mc);
         return tax;
     }
 }
