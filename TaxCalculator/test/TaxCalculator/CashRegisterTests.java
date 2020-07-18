@@ -48,7 +48,7 @@ public class CashRegisterTests {
         CashRegister cashRegister = CashRegister.getInstance();
         BigDecimal itemTax = cashRegister.calculateTaxRate(true, false);
         BigDecimal actual = cashRegister.calculateTax(new BigDecimal(String.valueOf(1.99)), itemTax);
-        BigDecimal expected = new BigDecimal(String.valueOf("0.000"));
+        BigDecimal expected = new BigDecimal(String.valueOf("0.0"));
         Assert.assertEquals(actual, expected);
     }
 
@@ -75,7 +75,7 @@ public class CashRegisterTests {
         CashRegister cashRegister = CashRegister.getInstance();
         BigDecimal itemTax = cashRegister.calculateTaxRate(true, true);
         BigDecimal actual = cashRegister.calculateTax(new BigDecimal(String.valueOf(10.00)), itemTax);
-        BigDecimal expected = new BigDecimal(String.valueOf("0.50"));
+        BigDecimal expected = new BigDecimal(String.valueOf("0.5"));
         Assert.assertEquals(actual, expected);
     }
 

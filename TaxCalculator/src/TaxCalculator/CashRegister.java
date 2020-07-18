@@ -19,7 +19,6 @@ public class CashRegister {
         int nonExemptRate = 10;
         int importedRate = 5;
         double taxRate = 0;
-        //BigDecimal taxRate = new BigDecimal(String.valueOf(0.0));
         if (!isTaxExempt) {
             taxRate += nonExemptRate;
         }
@@ -32,6 +31,9 @@ public class CashRegister {
     public BigDecimal calculateTax(BigDecimal price, BigDecimal taxRate) {
         MathContext mc = new MathContext(2);
         BigDecimal tax = new BigDecimal(String.valueOf(price.multiply(taxRate))).round(mc);
+        tax = tax.multiply(new BigDecimal(String.valueOf(20)));
+        double newTax = Math.ceil(tax.doubleValue());
+        tax = new BigDecimal(String.valueOf(newTax)).divide(new BigDecimal(String.valueOf(20)));
         return tax;
     }
 }
