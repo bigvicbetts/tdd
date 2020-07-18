@@ -17,11 +17,11 @@ public class CashRegister {
         double nonExempt = 0.1;
         double imported = 0.05;
         double taxRate = 0.0;
-        if (isTaxExempt && !isImported) {
-            taxRate = 0.0;
+        if (!isTaxExempt) {
+            taxRate += nonExempt;
         }
-        else if (!isTaxExempt && !isImported) {
-            taxRate = nonExempt;
+        if (isImported) {
+            taxRate += imported;
         }
         return new BigDecimal(String.valueOf(taxRate));
     }

@@ -22,4 +22,12 @@ public class CashRegisterTests {
         BigDecimal expected = new BigDecimal(String.valueOf(0.1));
         Assert.assertEquals(actual, expected);
     }
+
+    @Test
+    public void testCalculateTaxRate_TaxExemptAndImported() {
+        CashRegister cashRegister = CashRegister.getInstance();
+        BigDecimal actual = cashRegister.calculateTaxRate(true, true);
+        BigDecimal expected = new BigDecimal(String.valueOf(0.05));
+        Assert.assertEquals(actual, expected);
+    }
 }
