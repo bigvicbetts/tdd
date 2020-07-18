@@ -9,7 +9,7 @@ public class MusicTests {
     public void testGetDescription() {
         Product music = Music.getInstance(11.49, "Bad Hair Day");
         String actual = music.getDescription();
-        String expected = "Hello";
+        String expected = "Bad Hair Day";
         Assert.assertEquals(actual, expected);
     }
 }
