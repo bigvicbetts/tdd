@@ -12,4 +12,12 @@ public class FragranceTests {
         String expected = "Something Smells";
         Assert.assertEquals(actual, expected);
     }
+
+    @Test
+    public void testGetDescription_GetDefaultDescription() {
+        Product fragrance = Fragrance.getInstance(11.49);
+        String actual = fragrance.getDescription();
+        String expected = "Something Smells";
+        Assert.assertEquals(actual, expected);
+    }
 }
