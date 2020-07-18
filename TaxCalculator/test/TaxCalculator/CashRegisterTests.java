@@ -98,11 +98,42 @@ public class CashRegisterTests {
     }
 
     @Test
-    public void testCalculateTotalPrice() {
+    public void testCalculateTotalPrice_ExemptAndImported() {
         CashRegister cashRegister = CashRegister.getInstance();
-        BigDecimal testTaxRate = cashRegister.calculateTaxRate(true, true);
-        BigDecimal actual = cashRegister.calculateTotalPrice(new BigDecimal(String.valueOf(11.25)), cashRegister.calculateTax(new BigDecimal(String.valueOf("11.25")), testTaxRate));
+        BigDecimal price = new BigDecimal(String.valueOf(11.25));
+        BigDecimal testTax = cashRegister.calculateTax(price, cashRegister.calculateTaxRate(true, true));
+        BigDecimal actual = cashRegister.calculateTotalPrice(price, testTax);
         BigDecimal expected = new BigDecimal(String.valueOf("11.85"));
+        Assert.assertEquals(actual, expected);
+    }
+
+    @Test
+    public void testCalculateTotalPrice_NonExemptAndImported() {
+        CashRegister cashRegister = CashRegister.getInstance();
+        BigDecimal price = new BigDecimal(String.valueOf(47.50));
+        BigDecimal testTax = cashRegister.calculateTax(price, cashRegister.calculateTaxRate(false, true));
+        BigDecimal actual = cashRegister.calculateTotalPrice(price, testTax);
+        BigDecimal expected = new BigDecimal(String.valueOf("54.65"));
+        Assert.assertEquals(actual, expected);
+    }
+
+    @Test
+    public void testCalculateTotalPrice_ExemptAndNonImported() {
+        CashRegister cashRegister = CashRegister.getInstance();
+        BigDecimal price = new BigDecimal(String.valueOf(9.75));
+        BigDecimal testTax = cashRegister.calculateTax(price, cashRegister.calculateTaxRate(true, false));
+        BigDecimal actual = cashRegister.calculateTotalPrice(price, testTax);
+        BigDecimal expected = new BigDecimal(String.valueOf("9.75"));
+        Assert.assertEquals(actual, expected);
+    }
+
+    @Test
+    public void testCalculateTotalPrice_NonExemptAndNonImported() {
+        CashRegister cashRegister = CashRegister.getInstance();
+        BigDecimal price = new BigDecimal(String.valueOf(14.99));
+        BigDecimal testTax = cashRegister.calculateTax(price, cashRegister.calculateTaxRate(false, false));
+        BigDecimal actual = cashRegister.calculateTotalPrice(price, testTax);
+        BigDecimal expected = new BigDecimal(String.valueOf("16.49"));
         Assert.assertEquals(actual, expected);
     }
 }
