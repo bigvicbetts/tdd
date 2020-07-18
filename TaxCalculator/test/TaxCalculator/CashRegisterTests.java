@@ -41,6 +41,8 @@ public class CashRegisterTests {
         Assert.assertEquals(actual, expected);
     }
 
+
+
     @Test
     public void testCalculateTax_TaxExemptAndNotImported() {
         CashRegister cashRegister = CashRegister.getInstance();
@@ -65,8 +67,9 @@ public class CashRegisterTests {
         BigDecimal itemTax = cashRegister.calculateTaxRate(false, true);
         BigDecimal actual = cashRegister.calculateTax(new BigDecimal(String.valueOf(27.99)), itemTax);
         BigDecimal expected = new BigDecimal(String.valueOf("4.2"));
-        fail();
-        //Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, expected);
     }
+
+    
 
 }
