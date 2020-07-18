@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
 
-public class BookTest {
+public class BookTests {
 
     @Test
     public void testGetDescription() {
