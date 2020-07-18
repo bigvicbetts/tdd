@@ -9,7 +9,7 @@ public class FragranceTests {
     public void testGetDescription() {
         Product fragrance = Fragrance.getInstance(11.49, "Something Smells");
         String actual = fragrance.getDescription();
-        String expected = "Something stinks";
+        String expected = "Something Smells";
         Assert.assertEquals(actual, expected);
     }
 }
