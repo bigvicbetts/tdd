@@ -17,7 +17,7 @@ public class MusicTests {
     public void testGetDescription_GetDefaultDescription() {
         Product music = Music.getInstance(11.49);
         String actual = music.getDescription();
-        String expected = "Bad Hair Day";
+        String expected = "music";
         Assert.assertEquals(actual, expected);
     }
 }
