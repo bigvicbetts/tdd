@@ -27,7 +27,7 @@ public class FoodTests {
     public void testGetPrice() {
         Product food = Food.getInstance(11.49);
         BigDecimal actual = food.getPrice();
-        BigDecimal expected = new BigDecimal(String.valueOf(11.50));
+        BigDecimal expected = new BigDecimal(String.valueOf("11.49"));
         Assert.assertEquals(actual, expected);
     }
 }
