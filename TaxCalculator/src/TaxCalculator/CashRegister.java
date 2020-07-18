@@ -2,6 +2,8 @@ package TaxCalculator;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.MathContext;
+import java.text.NumberFormat;
 
 public class CashRegister {
 
@@ -28,7 +30,9 @@ public class CashRegister {
     }
 
     public BigDecimal calculateTax(BigDecimal price, BigDecimal taxRate) {
-        return price.multiply(taxRate);
+        MathContext mc = new MathContext(2);
+        BigDecimal tax = new BigDecimal(String.valueOf(price.multiply(taxRate))).round(mc);
+        return tax;
     }
 }
 
