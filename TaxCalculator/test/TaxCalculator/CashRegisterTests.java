@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 public class CashRegisterTests {
 
     @Test
@@ -29,5 +31,14 @@ public class CashRegisterTests {
         BigDecimal actual = cashRegister.calculateTaxRate(true, true);
         BigDecimal expected = new BigDecimal(String.valueOf(0.05));
         Assert.assertEquals(actual, expected);
+    }
+
+    @Test
+    public void testCalculateTaxRate_NonTaxExemptAndImported() {
+        CashRegister cashRegister = CashRegister.getInstance();
+        BigDecimal actual = cashRegister.calculateTaxRate(false, true);
+        BigDecimal expected = new BigDecimal(String.valueOf(0.15));
+        fail();
+        //Assert.assertEquals(actual, expected);
     }
 }
