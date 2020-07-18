@@ -9,7 +9,7 @@ public class FoodTests {
     public void testGetDescription() {
         Product food = Food.getInstance(11.49, "grapes");
         String actual = food.getDescription();
-        String expected = "my food";
+        String expected = "grapes";
         Assert.assertEquals(actual, expected);
     }
 }
