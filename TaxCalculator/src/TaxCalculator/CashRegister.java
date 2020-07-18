@@ -37,5 +37,9 @@ public class CashRegister {
         tax.round(mc);
         return tax;
     }
+
+    public BigDecimal calculateTotalPrice(BigDecimal price, BigDecimal tax) {
+        return price.add(tax);
+    }
 }
 
