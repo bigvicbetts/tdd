@@ -58,4 +58,15 @@ public class CashRegisterTests {
         BigDecimal expected = new BigDecimal(String.valueOf("1.5"));
         Assert.assertEquals(actual, expected);
     }
+
+    @Test
+    public void testCalculateTax_NotTaxExemptAndImported() {
+        CashRegister cashRegister = CashRegister.getInstance();
+        BigDecimal itemTax = cashRegister.calculateTaxRate(false, true);
+        BigDecimal actual = cashRegister.calculateTax(new BigDecimal(String.valueOf(27.99)), itemTax);
+        BigDecimal expected = new BigDecimal(String.valueOf("4.2"));
+        fail();
+        //Assert.assertEquals(actual, expected);
+    }
+
 }
