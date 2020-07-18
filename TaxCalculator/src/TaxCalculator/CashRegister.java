@@ -13,9 +13,9 @@ public class CashRegister {
         return new CashRegister();
     }
 
-    public BigDecimal calculateTax(BigDecimal price, boolean isTaxExempt, boolean isImported) {
+    public BigDecimal calculateTaxRate(boolean isTaxExempt, boolean isImported) {
         double value = 3.0;
-        return new BigDecimal(String.valueOf(BigDecimal.valueOf(value)));
+        return new BigDecimal(String.valueOf(value));
     }
 }
 

@@ -30,7 +30,9 @@ I will try to follow the SOLID and TDD principles as closely as I know how.  I b
 <h2>
     3. Executing the Plan
 </h2>
-*
+
+1.  Create method to calculate the item tax based on the information provided.
+2.  After contemplation, I've decided to first create a method to calculate the actual tax rate.  Only once that is completed will I create a method to actually calculate the tax.
 *
 *
 *
@@ -41,7 +43,11 @@ I will try to follow the SOLID and TDD principles as closely as I know how.  I b
 <h2>
     4. Reflection / Refactor
 </h2>
-*
+
+1.  After attending some learning sessions with Craig, I have decided that I will focus simply on one task at a time and let that guide my program design, rather than sticking with the plan that I laid out above.  Classes and methods will be added and tested as they become necessary.  Hopefully this will lead to proper design and functionality.
+
+2. I initially started out with a method to calculate tax based on (1) the item price and (2) the boolean values representing whether the item was exempt from local sales tax and/or an imported good.  I have since decided that this process would be better if it were broken down into two smaller methods; one to determine the tax rate and a second one to actually calculate the tax.
+
 *
 *
 *
