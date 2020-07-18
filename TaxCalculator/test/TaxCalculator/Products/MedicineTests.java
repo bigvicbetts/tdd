@@ -27,7 +27,7 @@ public class MedicineTests {
     public void testGetPrice() {
         Product medicine = Medicine.getInstance(11.49);
         BigDecimal actual = medicine.getPrice();
-        BigDecimal expected = new BigDecimal(String.valueOf(11.50));
+        BigDecimal expected = new BigDecimal(String.valueOf(11.49));
         Assert.assertEquals(actual, expected);
     }
 }
