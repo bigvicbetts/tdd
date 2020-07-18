@@ -14,8 +14,13 @@ public class CashRegister {
     }
 
     public BigDecimal calculateTaxRate(boolean isTaxExempt, boolean isImported) {
-        double value = 3.0;
-        return new BigDecimal(String.valueOf(value));
+        double nonExempt = 0.1;
+        double imported = 0.05;
+        double taxRate = 0.0;
+        if (isTaxExempt && !isImported) {
+            taxRate = 0.0;
+        }
+        return new BigDecimal(String.valueOf(taxRate));
     }
 }
 
