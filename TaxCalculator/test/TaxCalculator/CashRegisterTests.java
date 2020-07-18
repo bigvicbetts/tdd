@@ -101,8 +101,8 @@ public class CashRegisterTests {
     public void testCalculateTotalPrice() {
         CashRegister cashRegister = CashRegister.getInstance();
         BigDecimal testTaxRate = cashRegister.calculateTaxRate(true, true);
-        BigDecimal actual = cashRegister.calculateTotalPrice(new BigDecimal(String.valueOf(11.25)), testTaxRate);
+        BigDecimal actual = cashRegister.calculateTotalPrice(new BigDecimal(String.valueOf(11.25)), cashRegister.calculateTax(new BigDecimal(String.valueOf("11.25")), testTaxRate));
         BigDecimal expected = new BigDecimal(String.valueOf("11.85"));
-        fail();
+        Assert.assertEquals(actual, expected);
     }
 }
