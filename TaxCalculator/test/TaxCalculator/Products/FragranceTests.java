@@ -3,6 +3,8 @@ package TaxCalculator.Products;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.math.BigDecimal;
+
 public class FragranceTests {
 
     @Test
@@ -20,4 +22,13 @@ public class FragranceTests {
         String expected = "fragrance";
         Assert.assertEquals(actual, expected);
     }
+
+    @Test
+    public void testGetPrice() {
+        Product fragrance = Fragrance.getInstance(11.49);
+        BigDecimal actual = fragrance.getPrice();
+        BigDecimal expected = new BigDecimal(String.valueOf("11.50"));
+        Assert.assertEquals(actual, expected);
+    }
+
 }
