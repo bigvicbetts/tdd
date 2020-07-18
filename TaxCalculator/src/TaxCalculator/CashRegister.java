@@ -20,6 +20,9 @@ public class CashRegister {
         if (isTaxExempt && !isImported) {
             taxRate = 0.0;
         }
+        else if (!isTaxExempt && !isImported) {
+            taxRate = nonExempt;
+        }
         return new BigDecimal(String.valueOf(taxRate));
     }
 }
