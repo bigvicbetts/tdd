@@ -9,7 +9,8 @@ public class BookTest {
     public void testGetDescription() {
         Product book = Book.getInstance(11.49, "My Book");
         String actual = book.getDescription();
-        String expected = "My Book2";
+        String expected = "My Book";
         Assert.assertEquals(actual, expected);
     }
+    
 }
