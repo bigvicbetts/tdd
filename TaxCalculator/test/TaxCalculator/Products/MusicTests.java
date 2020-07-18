@@ -3,6 +3,8 @@ package TaxCalculator.Products;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.math.BigDecimal;
+
 public class MusicTests {
 
     @Test
@@ -18,6 +20,14 @@ public class MusicTests {
         Product music = Music.getInstance(11.49);
         String actual = music.getDescription();
         String expected = "music";
+        Assert.assertEquals(actual, expected);
+    }
+
+    @Test
+    public void testGetPrice() {
+        Product music = Music.getInstance(11.49);
+        BigDecimal actual = music.getPrice();
+        BigDecimal expected = new BigDecimal(String.valueOf(11.50));
         Assert.assertEquals(actual, expected);
     }
 }
