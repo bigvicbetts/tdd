@@ -28,7 +28,7 @@ public class CashRegister {
     }
 
     public BigDecimal calculateTax(BigDecimal price, BigDecimal taxRate) {
-        return new BigDecimal(String.valueOf(0.0));
+        return price.multiply(taxRate);
     }
 }
 
