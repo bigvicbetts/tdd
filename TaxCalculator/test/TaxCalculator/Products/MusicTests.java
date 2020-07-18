@@ -27,7 +27,7 @@ public class MusicTests {
     public void testGetPrice() {
         Product music = Music.getInstance(11.49);
         BigDecimal actual = music.getPrice();
-        BigDecimal expected = new BigDecimal(String.valueOf(11.50));
+        BigDecimal expected = new BigDecimal(String.valueOf(11.49));
         Assert.assertEquals(actual, expected);
     }
 }
