@@ -19,4 +19,15 @@ public class CashRegisterTests {
         String expected = new ArrayList<>(Arrays.asList(Music.getInstance(14.99))).toString();
         Assert.assertEquals(actual, expected);
     }
+
+    @Test
+    public void testAddProduct_MultipleInstance() {
+        CashRegister cashRegister = CashRegister.getInastance();
+        cashRegister.addProduct(Music.getInstance(14.99));
+        cashRegister.addProduct(Medicine.getInstance(15.05, "Tylenol"));
+        String actual = cashRegister.getProducts().toString();
+        String expected = new ArrayList<>(Arrays.asList(Music.getInstance(14.99),
+                Medicine.getInstance(15.05, "Tyleno"))).toString();
+        Assert.assertEquals(actual, expected);
+    }
 }
