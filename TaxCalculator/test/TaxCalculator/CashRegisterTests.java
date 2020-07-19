@@ -15,8 +15,8 @@ public class CashRegisterTests {
     public void testAddProduct_OneInstance() {
         CashRegister cashRegister = CashRegister.getInastance();
         cashRegister.addProduct(Music.getInstance(14.99));
-        ArrayList<Product> actual = cashRegister.getProducts();
-        ArrayList<Product> expected = new ArrayList<>(Arrays.asList(Music.getInstance(14.99)));
+        String actual = cashRegister.getProducts().toString();
+        String expected = new ArrayList<>(Arrays.asList(Music.getInstance(14.99))).toString();
         Assert.assertEquals(actual, expected);
     }
 }

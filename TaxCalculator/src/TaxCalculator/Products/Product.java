@@ -21,4 +21,8 @@ public abstract class Product {
         return this.DESCRIPTION;
     }
 
+    @Override
+    public String toString() {
+        return this.DESCRIPTION + ":  $" + this.PRICE;
+    }
 }
