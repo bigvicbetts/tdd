@@ -1,5 +1,10 @@
 package TaxCalculator;
 
+import TaxCalculator.Products.Book;
+import TaxCalculator.Products.Food;
+import TaxCalculator.Products.Medicine;
+import TaxCalculator.Products.Product;
+
 import java.math.BigDecimal;
 import java.math.MathContext;
 
@@ -13,7 +18,7 @@ public class TaxCalculator {
         return new TaxCalculator();
     }
 
-    public BigDecimal calculateTaxRate(boolean isTaxExempt, boolean isImported) {
+    BigDecimal calculateTaxRate(boolean isTaxExempt, boolean isImported) {
         int nonExemptRate = 10;
         int importedRate = 5;
         double taxRate = 0;
@@ -26,7 +31,7 @@ public class TaxCalculator {
         return new BigDecimal(String.valueOf(taxRate/100));
     }
 
-    public BigDecimal calculateTax(BigDecimal price, BigDecimal taxRate) {
+    BigDecimal calculateTax(BigDecimal price, BigDecimal taxRate) {
         MathContext mc = new MathContext(2);
         BigDecimal tax = new BigDecimal(String.valueOf(price.multiply(taxRate)));
         tax = tax.multiply(new BigDecimal(String.valueOf(20)));
@@ -36,8 +41,17 @@ public class TaxCalculator {
         return tax;
     }
 
-    public BigDecimal calculateTotalPrice(BigDecimal price, BigDecimal tax) {
-        return price.add(tax);
+    public BigDecimal calculateTotalPrice(Product product, boolean isImported) {
+        boolean isTaxExempt = false;
+        if (product.getClass() == Food.getInstance(0.0).getClass() ||
+        product.getClass() == Medicine.getInstance(0.0).getClass() ||
+        product.getClass() == Book.getInstance(0.0).getClass()) {
+            isTaxExempt = true;
+        }
+        BigDecimal tax = new BigDecimal(String.valueOf(calculateTax(product.getPrice(),
+                calculateTaxRate(isTaxExempt, isImported))));
+
+        return product.getPrice().add(tax);
     }
 }
 

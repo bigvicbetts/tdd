@@ -1,5 +1,7 @@
 package TaxCalculator;
 
+import TaxCalculator.Products.Food;
+import TaxCalculator.Products.Medicine;
 import TaxCalculator.Products.Product;
 
 import java.math.BigDecimal;
@@ -31,6 +33,7 @@ public class CashRegister {
 
     public void addProduct(Product product) {
         products.add(product);
+
     }
 
     public ArrayList<Product> getProducts() {
