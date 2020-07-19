@@ -1,6 +1,7 @@
 package TaxCalculator.Products;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 
 public abstract class Product {
 
@@ -19,4 +20,5 @@ public abstract class Product {
     public String getDescription() {
         return this.DESCRIPTION;
     }
+
 }
