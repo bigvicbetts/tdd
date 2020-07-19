@@ -18,7 +18,7 @@ public class TaxCalculator {
         return new TaxCalculator();
     }
 
-    BigDecimal calculateTaxRate(boolean isTaxExempt, boolean isImported) {
+    private BigDecimal calculateTaxRate(boolean isTaxExempt, boolean isImported) {
         int nonExemptRate = 10;
         int importedRate = 5;
         double taxRate = 0;
@@ -31,7 +31,7 @@ public class TaxCalculator {
         return new BigDecimal(String.valueOf(taxRate/100));
     }
 
-    BigDecimal calculateTax(BigDecimal price, BigDecimal taxRate) {
+    private BigDecimal calculateTax(BigDecimal price, BigDecimal taxRate) {
         MathContext mc = new MathContext(2);
         BigDecimal tax = new BigDecimal(String.valueOf(price.multiply(taxRate)));
         tax = tax.multiply(new BigDecimal(String.valueOf(20)));
