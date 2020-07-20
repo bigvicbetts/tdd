@@ -49,7 +49,7 @@ public class TaxCalculatorTests {
     public void testCalculateTotalPrice_RoundingNecessary() {
         TaxCalculator taxCalculator = TaxCalculator.getInstance();
         BigDecimal actual = taxCalculator.calculateTotalPrice(Food.getInstance(11.25), true);
-        BigDecimal expected = new BigDecimal(String.valueOf("11.81"));
+        BigDecimal expected = new BigDecimal(String.valueOf("11.85"));
         Assert.assertEquals(actual, expected);
     }
 }
