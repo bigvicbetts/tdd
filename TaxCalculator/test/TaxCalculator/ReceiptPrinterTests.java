@@ -14,7 +14,7 @@ public class ReceiptPrinterTests {
         ReceiptPrinter receiptPrinter = ReceiptPrinter.getInstance();
         receiptPrinter.printReceipt(new ArrayList<Product>(), new BigDecimal(String.valueOf(0.0)), new BigDecimal(String.valueOf(0.0)));
         String actual = receiptPrinter.hello;
-        String expected = "Hello";
+        String expected = "Hello World";
         Assert.assertEquals(actual, expected);
     }
 }
