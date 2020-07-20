@@ -20,6 +20,11 @@ public class ReceiptPrinter {
     }
 
     public String formatReceiptItem(String itemDescription, BigDecimal totalPrice) {
-        return itemDescription + "   " + NumberFormat.getCurrencyInstance().format(totalPrice);
+        return itemDescription + ":   " + NumberFormat.getCurrencyInstance().format(totalPrice);
+    }
+
+    public String formatBottomLine(BigDecimal totalSalesTax, BigDecimal finalTotal) {
+        return "Sales Tax: " + NumberFormat.getCurrencyInstance().format(totalSalesTax) + "   " +
+               "Total: " + NumberFormat.getCurrencyInstance().format(finalTotal);
     }
 }
