@@ -19,8 +19,8 @@ public class ReceiptPrinter {
         return new ReceiptPrinter();
     }
 
-    public String formatReceiptItem(String itemDescription, BigDecimal totalPrice) {
-        return itemDescription + ":   " + NumberFormat.getCurrencyInstance().format(totalPrice);
+    public String formatReceiptItem(int occurences, String itemDescription, BigDecimal totalPrice) {
+        return occurences + " " + itemDescription + ":   " + NumberFormat.getCurrencyInstance().format(totalPrice);
     }
 
     public String formatBottomLine(BigDecimal totalSalesTax, BigDecimal finalTotal) {

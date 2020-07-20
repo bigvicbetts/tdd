@@ -15,8 +15,8 @@ public class ReceiptPrinterTests {
     @Test
     public void testFormatReceiptItem() {
         ReceiptPrinter receiptPrinter = ReceiptPrinter.getInstance();
-        String actual = receiptPrinter.formatReceiptItem("Tylenol", new BigDecimal(String.valueOf(15.99)));
-        String expected = "Tylenol:   $15.99";
+        String actual = receiptPrinter.formatReceiptItem(1, "Tylenol", new BigDecimal(String.valueOf(15.99)));
+        String expected = "1 Tylenol:   $15.99";
         Assert.assertEquals(actual, expected);
     }
 
