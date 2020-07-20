@@ -3,7 +3,9 @@ package TaxCalculator;
 import TaxCalculator.Products.Product;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Currency;
 
 public class ReceiptPrinter {
 
@@ -17,7 +19,7 @@ public class ReceiptPrinter {
         return new ReceiptPrinter();
     }
 
-    public void printReceipt(ArrayList<Product> products, BigDecimal totalTax, BigDecimal finalTotal) {
-        hello = "Hello World";
+    public String formatReceiptItem(String itemDescription, BigDecimal totalPrice) {
+        return itemDescription + "   " + NumberFormat.getCurrencyInstance().format(totalPrice);
     }
 }

@@ -10,8 +10,9 @@ import java.util.ArrayList;
 public class CashRegister {
 
     private TaxCalculator taxCalculator = TaxCalculator.getInstance();
+    private ReceiptPrinter receiptPrinter = ReceiptPrinter.getInstance();
     private ArrayList<Product> products = new ArrayList<>();
-    private BigDecimal totalUntaxed = new BigDecimal(String.valueOf(0.0));
+    private BigDecimal subtotal = new BigDecimal(String.valueOf(0.0));
     private BigDecimal finalTotal = new BigDecimal(String.valueOf(0.0));
 
     private CashRegister() {
@@ -24,7 +25,7 @@ public class CashRegister {
     }
 
     public BigDecimal getTotalTax() {
-        return this.finalTotal.subtract(this.totalUntaxed);
+        return this.finalTotal.subtract(this.subtotal);
     }
 
     public BigDecimal getFinalTotal() {
