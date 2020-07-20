@@ -11,20 +11,20 @@ public class CashRegister {
 
     private TaxCalculator taxCalculator = TaxCalculator.getInstance();
     private ArrayList<Product> products = new ArrayList<>();
-    private BigDecimal totalTax = new BigDecimal(String.valueOf(0.0));
+    private BigDecimal totalUntaxed = new BigDecimal(String.valueOf(0.0));
     private BigDecimal finalTotal = new BigDecimal(String.valueOf(0.0));
 
     private CashRegister() {
 
     }
 
-    public static CashRegister getInastance() {
+    public static CashRegister getInstance() {
 
         return new CashRegister();
     }
 
     public BigDecimal getTotalTax() {
-        return this.totalTax;
+        return this.finalTotal.subtract(this.totalUntaxed);
     }
 
     public BigDecimal getFinalTotal() {
@@ -33,10 +33,10 @@ public class CashRegister {
 
     public void addProduct(Product product) {
         products.add(product);
-
     }
 
     public ArrayList<Product> getProducts() {
         return this.products;
     }
+
 }

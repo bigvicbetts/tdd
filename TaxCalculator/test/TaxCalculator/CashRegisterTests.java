@@ -13,7 +13,7 @@ public class CashRegisterTests {
 
     @Test
     public void testAddProduct_OneInstance() {
-        CashRegister cashRegister = CashRegister.getInastance();
+        CashRegister cashRegister = CashRegister.getInstance();
         cashRegister.addProduct(Music.getInstance(14.99));
         String actual = cashRegister.getProducts().toString();
         String expected = new ArrayList<>(Arrays.asList(Music.getInstance(14.99))).toString();
@@ -22,7 +22,7 @@ public class CashRegisterTests {
 
     @Test
     public void testAddProduct_MultipleInstance() {
-        CashRegister cashRegister = CashRegister.getInastance();
+        CashRegister cashRegister = CashRegister.getInstance();
         cashRegister.addProduct(Music.getInstance(14.99));
         cashRegister.addProduct(Medicine.getInstance(15.05, "Tylenol"));
         String actual = cashRegister.getProducts().toString();
