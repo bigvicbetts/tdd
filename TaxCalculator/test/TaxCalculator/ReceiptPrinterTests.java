@@ -24,7 +24,7 @@ public class ReceiptPrinterTests {
     public void testFormatBottomLine() {
         ReceiptPrinter receiptPrinter = ReceiptPrinter.getInstance();
         String actual = receiptPrinter.formatBottomLine(new BigDecimal(String.valueOf(6.70)), new BigDecimal(String.valueOf(74.68)));
-        String expected = "Hello World";
+        String expected = "Sales Tax: $6.70   Total: $74.68";
         Assert.assertEquals(actual, expected);
     }
 }
